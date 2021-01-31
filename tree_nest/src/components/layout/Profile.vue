@@ -2,7 +2,7 @@
 	<div class="Profile">
 		<div class="row">
 			<div class="card" style="width: 35vh">
-				<img class="card-img-top cardImg" src="../assets/img_avatar1.png"  alt="Card image">
+				<img class="card-img-top cardImg" src="./../../assets/img_avatar1.png"  alt="Card image">
 					<div class="card-body">
 						<div class="card-title">
 							<h4 class="card-title">{{ profileTenant.name }} {{ profileTenant.lastname }}</h4>
@@ -46,6 +46,13 @@
 </script>
 
 <style scoped>
+.Profile {
+	display: flex;
+	justify-content: center;
+    flex-direction: column;
+	align-items: center;
+
+}
 .cardImg {
 	align-items: center;
 }

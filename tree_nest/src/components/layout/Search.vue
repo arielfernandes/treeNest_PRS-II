@@ -2,8 +2,8 @@
   <div class="search">
 	<div class="form-outline t">
 		<input type="search" id="search-input" class="form-control" placeholder="Search" >
-			<button type="button" id="i-Search" class="btn btn-primary">
-				<img src="./../assets/search.svg" class="fa i-search" alt="">
+			<button type="button" id="i-Search" class="btn">
+				<img src="./../../assets/search.svg" class="fa i-search" alt="">
 			</button>
 	</div>
   </div>
@@ -34,7 +34,12 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style scoped>
+.search {
+	display: flex;
+	justify-content: center;
+
+}
 
 #i-Search {
 	vertical-align: middle;
@@ -43,13 +48,14 @@ export default {
     margin-top: -1px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+	border: none;
+	background-color: #6b61ff;
 }
+
 .form-outline {
 	display: flex;
-	justify-content: column;
+	align-items: center;
+	justify-content: center;
 	margin-bottom: 50px;
-}
-.t {
-	width: 35vh;
 }
 </style>

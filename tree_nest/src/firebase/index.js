@@ -5,14 +5,16 @@ import 'firebase/database'
 
 
 export const firebaseApp = firebase.initializeApp({
-	apiKey: process.env.VUE_APP_API_KEY,
-	authDomain: process.env.VUE_APP_AUTH_DOMAIN,
-	projectId: process.env.VUE_APP_PROJECT_ID,
-	storageBucket: process.env.VUE_APP_STORAGE_BUCKET,
-	messagingSenderId: process.env.VUE_APP_MESSAGING_SENDER_ID,
-	appId: process.env.VUE_APP_APP_ID,
-	measurementId: process.env.VUE_APP_MEASUREMENT_ID
+    apiKey: "AIzaSyCRp2KJRQfUTrw10rrwETGcE7qnxxOwiU4",
+    authDomain: "treenest-a7319.firebaseapp.com",
+    projectId: "treenest-a7319",
+    storageBucket: "treenest-a7319.appspot.com",
+    messagingSenderId: "273582505026",
+    appId: "1:273582505026:web:cbddf81bf2085f2cf141db",
+    measurementId: "G-Y4XNSHBVCR"
 })
+
+export const auth = firebaseApp.auth(); 
 
 export default function install (Vue) {
 	Object.defineProperty(Vue.prototype, '$firebase',{

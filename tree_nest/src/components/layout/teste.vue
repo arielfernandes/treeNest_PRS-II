@@ -3,7 +3,7 @@
 <div class="form-outline">
 <input type="search" id="search-input" class="form-control" placeholder="Search" >
 <button type="button" id="i-Search" class="btn btn-primary">
-<img src="./../assets/search.svg" class="fa i-search" alt="">
+<img src="./../../assets/search.svg" class="fa i-search" alt="">
 </button>
 </div>
 </div>
