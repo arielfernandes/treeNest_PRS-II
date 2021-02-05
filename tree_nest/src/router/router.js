@@ -12,16 +12,22 @@ const router = new Router({
 			},
 			{
 				name: 'profit',
-				path: '/listTanant',
+				path: '/listTenant',
 				meta: {
 					icon: 'list-ul', title: 'List tenant' },
 				component: () => import('../pages/list-tenant/listTenant')
 			},
 			{
 					name: 'login',
-					path: '/Login',
+					path: '/login',
 					meta: { title: 'Login' },
 				component: () => import('../pages/login/Login')
+			},
+			{
+				name: 'signUp',
+				path: '/signUp',
+				meta: { title: 'SignUp' },
+				component: ()=> import('../pages/createAccount/CreateAccount')
 			}
 	]
 

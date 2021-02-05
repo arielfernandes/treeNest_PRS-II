@@ -2,13 +2,13 @@
   <div id="Home">
 	<h1 class="title">Tree Nest</h1>
 	<div class="row">
-		<div class="col-6 home-box">
-			<small>Faturamento total:</small>
-			<div class="money" v-money-format="totals.totalProfit" />
+		<div class="s-font col-6 home-box">
+			<small >Monthly invoicing:</small>
+			<div class="m" v-money-format="totals.totalProfit" />
 		</div>
-		<div class="col-6 home-box">
-			<small>Total de inquilinos:</small>
-			<div class="money">{{ totals.totalTenant }}</div>
+		<div class="s-font col-6 home-box">
+			<small >Tenants</small>
+			<div class="m">{{ totals.totalTenant }}</div>
 		</div>
 	</div>
   </div>
@@ -30,6 +30,7 @@ export default {
 				totalProfit: 0,
 				totalTenant: 0
 			}
+			//calc tot values
 			if (reg.length) {
 				values.totalProfit = reg.map(e => +e.value)
 					.reduce((acc, cur) => acc + cur, 0)
@@ -52,10 +53,15 @@ export default {
 </script>
 
 <style scoped>
+.s-font {
+	font-size: 20pt;
+}
 .home-box {
-	padding: 30px;
+	margin-top: 40px;
+	padding: 10px;
 	width: 100%;
 	height: calc(50vh - 30px);
+			background-color: lightblue;
 	}
 .title, .home-box {
 	display: flex;
@@ -64,6 +70,6 @@ export default {
 	align-items: center;
 }
 .title {
-	margin-top: 30px;
+	margin-top: 50px;
 }
 </style>

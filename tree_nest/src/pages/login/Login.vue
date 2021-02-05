@@ -1,39 +1,47 @@
 <template>
-	<form @submit.prevent="doLogin()" class="form-login">
-		<div class="card">
-		<div class="card-header text-center">
-			<h1> Tree Nest</h1>
-		</div>
-			<div class="card-body">
-				<div class="form-group">
-					<input
-					required
-					type="email"
-					v-model="email"
-					class="form-control"
-					placeholder="E-mail">
-				</div>
-				<div class="form-group">
-					<input
-					required
-					v-model="password"
-					type="password"
-					class="form-control"
-					placeholder="Password">
-				</div>
-				<button class="btn btn-primary btn-block" :disabled="loading">
-					<template v-if="loading">
-						Logando
-						<i class="fa fa-spinner fa-spin"></i>
-					</template>
-					<template v-else>
-						Sing in
-						<i class="fa fa-sign-in-alt"></i>
-					</template>
-				</button>
+	<div>
+		<form @submit.prevent="doLogin()" class="form-login">
+			<div class="card">
+			<div class="card-header text-center">
+				<h1> Tree Nest</h1>
 			</div>
-		</div>
-	</form>
+				<div class="card-body">
+					<div class="form-group">
+						<input
+						required
+						type="email"
+						v-model="email"
+						class="form-control"
+						placeholder="E-mail">
+					</div>
+					<div class="form-group">
+						<input
+						required
+						v-model="password"
+						type="password"
+						class="form-control"
+						placeholder="Password">
+					</div>
+					<button class="btn btn-primary btn-block" :disabled="loading">
+						<template v-if="loading">
+							Logando
+							<i class="fa fa-spinner fa-spin"></i>
+						</template>
+						<template v-else>
+							Sing in
+							<i class="fa fa-sign-in-alt"></i>
+						</template>
+					</button>
+				</div>
+			</div>
+		</form>
+		<button>
+		
+			<router-link to="/signUp" custom v-slot="{ navigate }">
+				<span @click="navigate" role="link">link</span>
+			</router-link>
+		</button>
+	</div>
 </template>
 
 <script>
@@ -82,6 +90,11 @@ export default {
 				vm.$router.push({ name: 'home' })
 			}
 		})
+	},
+	computed: {
+		routerLinks () {
+			return this.$router.options.routes.filter(r => (r.name == 'signUp'))
+		}
 	}
 }
 </script>
@@ -98,6 +111,11 @@ h1 {
 	.card {
 		width: 30%;
 	}
+}
+.signUp {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 </style>

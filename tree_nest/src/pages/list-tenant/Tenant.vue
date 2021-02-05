@@ -2,7 +2,7 @@
 	<div class="allTenant row">
 		<div class="col-10">
 			<div class="description">
-				<span> {{ data.name }} </span>
+				<span style="width: 100px;"> {{ data.name }} </span>
 				<button
 				v-if="data.id"
 				class="btn btn-sm btn-outline-primary"
@@ -10,6 +10,12 @@
 				>
 				<i class="fa fa-external-link-alt"></i>
 					view perfil
+				</button>
+				<button
+				@click="remove()"
+				class="btn btn-sm btn-outline-primary"
+				>
+				<i class="fa fa-trash-alt"></i>
 				</button>
 				<!-- div class="col-10">CPF: {{ data.cpf }}</div>
 				<div class="col-10">Phone: {{ data.phone }}</div>
@@ -31,6 +37,16 @@ export default {
 	methods: {
 		openPerfil () {
 			window.open(this.data.photo, '_blank')
+		},
+		remove() {
+			var storage = this.$firebase.storage().ref(window.uid)
+			var storageRef = storage
+			storageRef.delete().then(() => {
+				console.log('sucesso');
+			}).catch(function() {
+				console.log('erroo')
+			});
+			
 		}
 	}
 }
