@@ -11,9 +11,9 @@
 			>
 			<i class="fa" :class="`fa-${router.meta.icon}`"></i>
 			{{ router.meta.title }}
-			</router-link>
-
-			<Register/>
+			</router-link>	
+			<hr>
+			<LayoutNewTenant/>
 		</div>
 		<LayoutLogout/>
 	</nav>
@@ -21,15 +21,15 @@
 
 <script>
 import LayoutLogout from './LayoutLogout'
-import Register from './Register'
+import LayoutNewTenant from './LayoutNewTenant'
 export default {
 	components: {
 		LayoutLogout,
-		Register
+		LayoutNewTenant
 	},
 	computed: {
 		routerLinks () {
-			return this.$router.options.routes.filter(r => (r.name != 'login') && (r.name != 'signUp'))
+			return this.$router.options.routes.filter(r => (r.name !== 'login') && (r.name !== 'register'))
 		}
 	}
 }

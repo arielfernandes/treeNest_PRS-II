@@ -24,23 +24,21 @@ const router = new Router({
 				component: () => import('../pages/login/Login')
 			},
 			{
-				name: 'signUp',
-				path: '/signUp',
-				meta: { title: 'SignUp' },
-				component: ()=> import('../pages/createAccount/CreateAccount')
+				name: 'register',
+				path: '/register',
+				meta: { title: 'Register' },
+				component: () => import('../pages/register/Register')
 			}
 	]
 
 })
 router.beforeEach((to, from, next) => {
-			document.title = `${to.meta.title} - TreeNest`
-			if (!window.uid && to.name != 'login') {
-				next({
-					name: 'login'
-				})
-			} else {
-				next()
-			}
-
-})
+	document.title = `${to.meta.title} - Tree Nest`
+  
+	if (!window.uid && to.name !== 'login' && to.name !== 'register') {
+		next({ name: 'login' })
+	} else {
+		next()
+	}
+  })
 export default router

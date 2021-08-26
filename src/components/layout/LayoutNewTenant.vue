@@ -17,7 +17,7 @@
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Adicionar um novo gasto</h5>
+              <h5 class="modal-title">Add a new tenant</h5>
               <button
                 type="button"
                 class="close"
@@ -100,8 +100,8 @@
 				</div>
 				<div class="form-group col-12 flex-column d-flex align-items-center">
 					<input
-					ref="inputPhoto"
 					type="file"
+					ref="input"
 					class="d-none"
 					accept="image/*"
 					@change="handleFile($event)"
@@ -110,7 +110,7 @@
 					<button type="button"
 					@click="openFileDialog()"
 					class="btn btn-outline-secondary">
-						Add Photo
+						Add File
 					</button>
 
 					<div class="mt-2" v-if="form.photo">
@@ -131,12 +131,12 @@
                 class="btn btn-secondary"
                 @click="closeModal()"
               >
-                Fechar
+                Close
               </button>
               <button class="btn btn-primary" :disabled="loading">
                 <template v-if="loading">
                   <i class="fa fa-spin fa-spinner"></i>
-                  Salvando...
+                  Saving...
                 </template>
                 <template v-else>
                   Save tenant
@@ -169,8 +169,9 @@ import {mask} from 'vue-the-mask'
 				phone: '',
 				apt: '',
 				contract: '',
-				value: '',
 				photo: '',
+				value: '',
+				
 			}
 		}),
 		directives: {mask},
@@ -187,15 +188,13 @@ import {mask} from 'vue-the-mask'
 		},
 		methods: {
 			openFileDialog() {
-				this.$refs.inputPhoto.value = null
-				this.$refs.inputPhoto.click()
+				this.$refs.input.value = null
+				this.$refs.input.click()
 			},
 			handleFile ({ target }) {
 				this.form.photo = target.files[0]
 			},
-			closeModal() {
-				this.showModal = false
-			},
+		
 			async submit() {
 				let url = ''
 				this.loading = true
@@ -243,8 +242,11 @@ import {mask} from 'vue-the-mask'
 				} finally {
 					this.$root.$emit('Spinner::hide')
 					this.loading = false
-				}
+				}				
 			},
+			closeModal () {
+				this.showModal = false
+			}
 		}
 	}
 </script>

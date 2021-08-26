@@ -21,6 +21,8 @@
 import BaseSpinner from './components/global/BaseSpinner'
 import LayoutNavigation from './components/layout/LayoutNavigation'
 import LayoutNotification from './components/layout/LayoutNotification'
+
+
 export default {
 	name: 'App',
 	components: {

@@ -26,8 +26,6 @@ export default {
 	width: 100%;
 	cursor: pointer;
 	color: white;
-	&:hover {
-		color: lightblue;
-	}
+	
 }
 </style>
